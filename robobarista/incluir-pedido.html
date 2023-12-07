@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Robo barista - Incluir novo pedido</title>
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="assets/css/app.css" />
+  </head>
+  <body class="bg-slate">
+    <!-- 
+        Nome da pessoa
+        Itens do pedido
+            - Códido do item (manualmente ou por procura)
+            - Quantidade (manualmente)
+            - Valor (não será inserido manualmente)
+        Valor total (soma do valor total de cada item no pedido multiplicado pela quantidade)
+     -->
+
+    <div class="form-control mb-3">
+      <label for="inpNome">Nome do cliente</label>
+      <input type="text" id="inpNome" />
+    </div>
+
+    <div class="mb-3">
+      <label for="itensDoPedido">Itens do pedido</label>
+      <ul id="itensDoPedido" class="ml-5"></ul>
+
+      <div style="display: flex; justify-content: end; align-items: center">
+        <button class="btn-primary mt-2" onclick="abrirModalDeInclusao()">
+          Incluir novo item
+        </button>
+      </div>
+    </div>
+
+    <div class="form-control mb-3">
+      <label for="inpValorTotal"> <b>Valor Total (R$)</b> </label>
+      <input type="text" id="inpValorTotal" disabled />
+    </div>
+
+    <div class="modal d-none" id="modal-inclusao-de-item">
+      <div class="modal-body">
+        <div class="modal-body-header">
+          <button class="border p-0 px-2 py-1" onclick="fecharModal()">X</button>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Categoria</th>
+              <th>Descrição</th>
+              <th>Valor</th>
+            </tr>
+          </thead>
+          <tbody id="tbody_catalogo"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="assets/js/lib/Modal.js"></script>
+    <script src="assets/js/incluir_pedido/incluir_pedido.js"></script>
+  </body>
+</html>
